@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="body-overflow">
+    <form id=refresh></form>
+    <!-- Layers -->
+    <!-- Layer One -->
+    <div class="full start-game">
+      <div class="note">For More Experence Open In Bigger Screen</div>
+      <span id="game-btn">Start Game</span>
+    </div>
+    <!-- Layer Two -->
+    <div class="full options down">
+      <span id="normal">Normal Game</span>
+      <span id="timer">With Timer</span>
+      <span id ="tries">With Chances</span>
+    </div>
+    <!-- Set Timer Layer -->
+    <div class="full set down">
+      <div class="box">
+        <form>
+          <input type="text" name="set" autocomplete="off">
+          <input type="submit" value="Set">
+        </form>
+      </div>
+    </div>
+    <!-- Winner Layer -->
+    <div class="full winner down">
+      <div>You Win</div>
+      <span class="refresh">Play Again</span>
+    </div>
+    <!-- Loser Layer-->
+    <div class="full loser down">
+      <div>You Lose !</div>
+      <span class="refresh">Play Again</span>
+    </div>
+    
+    <!-- Game Container -->
+    <div class="container">
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <!-- Username -->
+        <div class="name">Username: <span></span></div>
+        <div class="timer"><span>00:00</span></div>
+        <!-- Wrong Tries -->
+        <div class="tries">Wrong Tries: <span>0</span></div>
+      </div>
+
+      <!-- Blocks Box -->
+      <div class="blocks-box">
+        <!-- New Items -->
+        <div class="block" data-tec="angular">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/angular.png">
+          </div>
+        </div>
+        <div class="block" data-tec="angular">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/angular.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="vuejs">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/vuejs.png">
+          </div>
+        </div>
+        <div class="block" data-tec="vuejs">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/vuejs.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="react">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/react.png">
+          </div>
+        </div>
+        <div class="block" data-tec="react">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/react.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="github">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/github.png">
+          </div>
+        </div>
+        <div class="block" data-tec="github">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/github.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="css3">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/css3.png">
+          </div>
+        </div>
+        <div class="block" data-tec="css3">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/css3.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="gulpjs">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/gulpjs.png">
+          </div>
+        </div>
+        <div class="block" data-tec="gulpjs">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/gulpjs.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="html5">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/html5.png">
+          </div>
+        </div>
+        <div class="block" data-tec="html5">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/html5.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="jest">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/jest.png">
+          </div>
+        </div>
+        <div class="block" data-tec="jest">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/jest.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="mongodb.png">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/mongodb.png">
+          </div>
+        </div>
+        <div class="block" data-tec="mongodb.png">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/mongodb.png">
+          </div>
+        </div>
+        
+        <!-- New Items -->
+        <div class="block" data-tec="python.png">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/python.png">
+          </div>
+        </div>
+        <div class="block" data-tec="python.png">
+          <div class="face front"></div>
+          <div class="face back">
+            <img src="./imgs/python.png">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Sounds -->
+    <audio id="success" src="https://www.elzero.org/wp-content/themes/elzero/audio/create-memory-game/success.mp4" preload="auto"></audio>
+    <audio id="fail" src="https://www.elzero.org/wp-content/themes/elzero/audio/create-memory-game/fail.mp4" preload="auto"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::selection {background-color: transparent;}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    width: 1080px;
+    max-width: 100%;
+    margin: auto;
+    padding: 20px 20px 40px;
+}
+.body-overflow {overflow: hidden;}
+
+/* Main Styling */
+
+/* Layers Styles */
+.full {
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2196f3c7;
+    flex-direction: column;
+    transition: transform .5s;
+}
+.full > span {
+    padding: 15px 0;
+    width: 200px;
+    max-width: 100%;
+    margin: 0 15px;
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    background-color: #ff5722;
+    color: #FFF;
+    border-radius: 6px;
+    transition: transform .3s;
+    box-shadow: 0 4px 0 #da3400;
+}
+.start-game .note {
+    display: none;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    text-align: center;
+    background-color: #222;
+    border-top: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    color: #FFF;
+}
+.options {row-gap: 10px;}
+.set .box {
+    padding: 20px;
+    border-radius: 6px;
+    background-color: #5288c5;
+    border-bottom: 4px solid #4a80be;
+}
+.set .box form {
+    display: flex;
+    margin-bottom: 2px;
+}
+.set .box form input {outline: 0;}
+.set .box form input[type=text] {
+    padding: 6px 8px;
+    border-radius: 6px 0 0 6px;
+    border: 0;
+}
+.set .box form input[type=submit] {
+    padding: 0 12px;
+    border-radius: 0 6px 6px 0;
+    border: 0;
+    border-left: 1px solid #999;
+}
+.winner > div,
+.loser > div {
+    width: 100%;
+    padding: 10px 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 5em;
+    background-color: #ff5722;
+    font-family: fantasy;
+    letter-spacing: 2px;
+    font-style: italic;
+    border-top: 4px solid #FFF;
+    border-bottom: 4px solid #FFF;
+    margin-bottom: 15px;
+}
+.winner > span,
+.loser > span {
+    width: fit-content;
+    padding: 15px 20px;
+    font-size: 1.2em;
+}
+.loser > div {
+    background-color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+.full > span:active {transform: scale(.97);}
+.up {transform: translateY(-100%);}
+.down {transform: translateY(100%);}
+
+/* Game Style */
+.container .info-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    background-color: #DDD;
+    border: 1px solid #a5b1c2;
+    color: #333;
+}
+.container .info-box > div > span {font-weight: bold;}
+.container .blocks-box {
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.container .blocks-box.stop-clicking {pointer-events: none;}
+.container .blocks-box .block {
+    position: relative;
+    flex: 1 0 180px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+.container .blocks-box .block.clicked,
+.container .blocks-box .block.flipped {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+.container .blocks-box .block .face {
+    position: absolute;
+    backface-visibility: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: #bdc3c7;
+    border: 2px solid #778ca3;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.container .blocks-box .block .front {
+    line-height: 200px;
+    height: 100%;
+    text-align: center;
+}
+.container .blocks-box .block .front::after {
+    content: '!';
+    font-size: 140px;
+    color: #555;
+}
+.container .blocks-box .block .back {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEE;
+    border: 2px solid #778ca3;
+}
+.container .blocks-box .block .back img {width: 140px;}
+
+/* Media Queries */
+@media (max-width: 467px) {
+    .container .info-box {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .winner > div,
+    .loser > div {
+        font-size: 15vw;
+    }
+    .container .info-box .timer {
+        align-self: center;
+    }
+    .start-game .note {
+        display: block;
+    }
+}
